@@ -43,13 +43,13 @@ class WSearch():
             
         writer.commit()
     
-    def index_create_from_wiki(self):
+    def index_create_from_wiki(self, wiki_http):
         schema = Schema(file_name=TEXT(stored=True), content=TEXT)
         
         ix = self.create_index_object_file(schema)
         
         #get text data from web articles
-        articles = web_module.ih_web_scrap()
+        articles = web_module.ih_web_scrap(wiki_http)  #"https://wiki.razor.si"
         #
         
         writer = ix.writer()
@@ -76,3 +76,5 @@ class WSearch():
             
             return file_names
 
+        
+        

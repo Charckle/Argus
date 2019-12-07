@@ -38,9 +38,10 @@ def log_error(e):
     '''
     print(e)
 
-def ih_web_scrap():
+def ih_web_scrap(wiki_link):
     
-    webLink = "https://wiki.razor.si/index.php?title=Special:AllPages"
+    #webLink = "https://wiki.razor.si/index.php?title=Special:AllPages"
+    webLink = f"{wiki_link}/index.php?title=Special:AllPages"
     
     raw_html = simple_get(webLink)
     soup = BeautifulSoup(raw_html, 'html.parser')
