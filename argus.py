@@ -14,9 +14,9 @@ class WSearch():
         
         schema = Schema(file_name=TEXT(stored=True), content=TEXT)
         
-        if not os.path.exists("index"):
-            os.mkdir("index")
-        ix = create_in("index", schema)
+        if not os.path.exists(".index"):
+            os.mkdir(".index")
+        ix = create_in(".index", schema)
         
         files = []
         # r=root, d=directories, f = files
@@ -39,7 +39,7 @@ class WSearch():
 
     def index_search(self,querystring):
         
-        ix = open_dir("index")
+        ix = open_dir(".index")
         
         parser = QueryParser("content", ix.schema)
         myquery = parser.parse(querystring)
